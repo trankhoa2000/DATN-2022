@@ -18,7 +18,6 @@ import java.util.Optional;
 @Repository
 public interface IUserRepository extends JpaRepository<User, Long> {
 
-    //khahq's code
     //    Getting the booking history of the user.
     @Query(value = "select distinct meeting_room.`name`, room_bookings.content, room_bookings.registration_date,\n" +
             "\tmeeting_room.floor, room_bookings.end_date, room_bookings.start_date, meeting_types.meeting_type_name, room_bookings.id, room_bookings.user_id\n" +
@@ -65,7 +64,6 @@ public interface IUserRepository extends JpaRepository<User, Long> {
                                                String startDate, String endDate,
                                                String meetingType, String registrationDate);
 
-    //    Code of khahq
     @Query(value = "select distinct meeting_room.`name`, room_bookings.content, room_bookings.registration_date,\n" +
             "\tmeeting_room.floor, room_bookings.end_date, room_bookings.start_date, meeting_types.meeting_type_name, room_bookings.id, room_bookings.user_id\n" +
             "from room_bookings\n" +
@@ -79,8 +77,6 @@ public interface IUserRepository extends JpaRepository<User, Long> {
 //    ---------------------------------------------------------------------------------
 //    ---------------------------------------------------------------------------------
 
-
-    //Code of dongthg
 
     //Get list of users
     @Query(value = "SELECT * " +

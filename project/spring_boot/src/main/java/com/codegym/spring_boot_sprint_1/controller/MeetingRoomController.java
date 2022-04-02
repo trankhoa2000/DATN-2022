@@ -163,6 +163,4 @@ public class MeetingRoomController {
         meetingRoomDto.setPropertyDtoList(propertyDtoList);
         return meetingRoomDto;
     }
-
-
 }

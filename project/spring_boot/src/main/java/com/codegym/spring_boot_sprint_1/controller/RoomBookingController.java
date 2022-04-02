@@ -231,7 +231,6 @@ public class RoomBookingController {
         return new ResponseEntity<>(HttpStatus.LOOP_DETECTED);
     }
 
-    //    Long code
     @Autowired
     private StatisticsDTOService statisticsDTOService;
 
