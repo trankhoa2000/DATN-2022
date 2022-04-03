@@ -35,7 +35,7 @@ public interface IPropertyRepository extends JpaRepository<Property, Long> {
             " WHERE id = ?8 ", nativeQuery = true)
     void updateProperty(String name, String detail, Double price, Integer amount, String image, Integer maintenance, Integer availability, Long id);
 
-    //    Tuấn code ------------
+
     @Transactional
     @Modifying
     @Query(value = "delete from property where id = ?1", nativeQuery = true)

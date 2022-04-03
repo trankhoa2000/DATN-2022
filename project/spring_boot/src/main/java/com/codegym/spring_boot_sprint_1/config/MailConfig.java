@@ -14,7 +14,7 @@ public class MailConfig {
     // Replace password!!
     public static final String MY_PASSWORD = "fwvmngwaivbrgfaw";
     // And receiver!
-    public static final String FRIEND_EMAIL = "";
+    public static final String FRIEND_EMAIL = "khoa4755@gmail.com";
 
     @Bean
     public JavaMailSender getJavaMailSender() {
