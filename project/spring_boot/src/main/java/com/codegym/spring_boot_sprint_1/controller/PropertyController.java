@@ -15,7 +15,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -23,7 +22,6 @@ import java.util.List;
 @RequestMapping("/api/properties")
 @PreAuthorize("hasRole('ROLE_ADMIN')")
 public class PropertyController {
-
     private static final String UNDEFINED = "undefined";
 
     @Autowired
@@ -35,14 +33,12 @@ public class PropertyController {
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     public ResponseEntity<Page<Property>> getAllProperty(Pageable pageable) {
         Page<Property> propertiesList = propertyService.findAll(pageable);
-
         for (Property c : propertiesList) {
             if (c.getUsingProperty() == 0) {
                 c.setUsingProperty(0);
             }
             c.setUsingProperty(this.propertyMeetingRoomService.sumPropertyInRoom(c.getId()));
         }
-
         if (propertiesList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }

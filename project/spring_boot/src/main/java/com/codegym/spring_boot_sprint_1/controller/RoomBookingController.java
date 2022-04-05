@@ -66,8 +66,7 @@ public class RoomBookingController {
             roomBookingDto.setEndTime(tempEdt2);
             dtoList.add(roomBookingDto);
         }
-        return new ResponseEntity<>(dtoList, HttpStatus.
-                OK);
+        return new ResponseEntity<>(dtoList, HttpStatus.OK);
     }
 
     @PostMapping("/postBookingRoomPending")
@@ -105,14 +104,14 @@ public class RoomBookingController {
     }
 
     @GetMapping("/searchEmpty")
-    public ResponseEntity<List<MeetingRoom>> search(@RequestParam(value = "meetingRoomId", defaultValue = "") String meetingRoomId,
-                                                    @RequestParam(value = "meetingTypeId") Long meetingTypeId,
-                                                    @RequestParam(value = "startDateVariable", defaultValue = "") String startDateVariable,
-                                                    @RequestParam(value = "endDateVariable", defaultValue = "") String endDateVariable,
-                                                    @RequestParam(value = "startHourVariable", defaultValue = "") String startHourVariable,
-                                                    @RequestParam(value = "endHourVariable", defaultValue = "") String endHourVariable,
-                                                    @RequestParam(value = "capacity") int capacity
-    ) {
+    public ResponseEntity<List<MeetingRoom>> search
+            (@RequestParam(value = "meetingRoomId", defaultValue = "") String meetingRoomId,
+             @RequestParam(value = "meetingTypeId") Long meetingTypeId,
+             @RequestParam(value = "startDateVariable", defaultValue = "") String startDateVariable,
+             @RequestParam(value = "endDateVariable", defaultValue = "") String endDateVariable,
+             @RequestParam(value = "startHourVariable", defaultValue = "") String startHourVariable,
+             @RequestParam(value = "endHourVariable", defaultValue = "") String endHourVariable,
+             @RequestParam(value = "capacity") int capacity) {
         List<MeetingRoom> list;
         String date1 = startDateVariable + " " + startHourVariable;
         String date2 = endDateVariable + " " + endHourVariable;
@@ -156,8 +155,8 @@ public class RoomBookingController {
 
     // đếm số lần đặt
     @GetMapping("/CountBookingsPerMonth")
-    public ResponseEntity<CountBookingsPerMonth> countBookingsPerMonth(@RequestParam(value = "userId") Long userId,
-                                                                       @RequestParam(value = "monthYear") String monthYear) {
+    public ResponseEntity<CountBookingsPerMonth> countBookingsPerMonth
+    (@RequestParam(value = "userId") Long userId, @RequestParam(value = "monthYear") String monthYear) {
         CountBookingsPerMonth object = countBookingsPerMonthService.findByUserAndAndMonthYearContains(userId, monthYear);
         if (object == null) {
             CountBookingsPerMonth countBookingsPerMonth = new CountBookingsPerMonth(1, monthYear, userService.findById(userId));
@@ -233,7 +232,6 @@ public class RoomBookingController {
 
     @Autowired
     private StatisticsDTOService statisticsDTOService;
-
 
     @GetMapping("/statistics")
     public ResponseEntity<Page<StatisticsDTO>> getListUserStatistic(@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, Pageable pageable) {

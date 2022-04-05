@@ -13,13 +13,17 @@ public class Feedback implements Serializable {
 
     @NotBlank
     private String feedbackTitle;
+
     private String feedbackContent;
+
     private String image;
 
     @ManyToOne
     @JoinColumn(name = "id_type_error")
     private TypeError typeError;
+
     private String feedbackTime;
+
     private boolean status;
 
     @ManyToOne

@@ -73,10 +73,8 @@ public interface IUserRepository extends JpaRepository<User, Long> {
             , nativeQuery = true)
     List<Object[]> getAllBookingHistoryOfAllUsers();
 
-
 //    ---------------------------------------------------------------------------------
 //    ---------------------------------------------------------------------------------
-
 
     //Get list of users
     @Query(value = "SELECT * " +

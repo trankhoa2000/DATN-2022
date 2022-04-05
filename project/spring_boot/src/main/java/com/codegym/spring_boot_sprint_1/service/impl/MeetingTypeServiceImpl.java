@@ -11,10 +11,8 @@ import java.util.Optional;
 
 @Service
 public class MeetingTypeServiceImpl implements IMeetingTypeService {
-
     @Autowired
     private IMeetingTypeRepository meetingTypeRepository;
-
 
     @Override
     public List<MeetingType> findAll() {
@@ -30,7 +28,6 @@ public class MeetingTypeServiceImpl implements IMeetingTypeService {
     public MeetingType save(MeetingType meetingType) {
         return meetingTypeRepository.save(meetingType);
     }
-
 
     @Override
     public void deleteById(Long idDelete) {

@@ -9,17 +9,22 @@ import java.util.Set;
 @Entity
 @Table
 public class MeetingRoom implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
+
     private Integer floor;
+
     private Integer capacity;
+
     private String color;
+
     private String status;
+
     private Integer amountUse;
+
     private Boolean availability;
 
     @OneToMany(mappedBy = "meetingRoom", cascade = CascadeType.ALL)

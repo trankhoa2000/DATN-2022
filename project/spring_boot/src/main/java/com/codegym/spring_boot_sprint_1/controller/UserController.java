@@ -37,7 +37,6 @@ public class UserController {
     private static final String USED_VALUE = "Đã sử dụng";
     private static final String USING_VALUE = "Đang sử dụng";
 
-    //    khahq's code
     @GetMapping("/booking-history/{userId}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     public ResponseEntity<List<BookingHistoryDto>> getBookingHistoryOfUser(@PathVariable Long userId) {
@@ -105,22 +104,16 @@ public class UserController {
             BookingHistoryDto bookingDto = new BookingHistoryDto();
             bookingDto.setRoomName((String) booking[0]);
             bookingDto.setContent((String) booking[1]);
-
             bookingDto.setRegistrationDate(convertFromDateToString((Date) booking[2]));
-
             bookingDto.setFloor(Integer.parseInt("" + booking[3]));
 
             String[] endDateTime = convertFromTimestampToDateTimeTokens((Timestamp) booking[4]);
             bookingDto.setEndDate(endDateTime[0]);
             bookingDto.setEndTime(endDateTime[1]);
-
-
             String[] startDateTime = convertFromTimestampToDateTimeTokens((Timestamp) booking[5]);
             bookingDto.setStartDate(startDateTime[0]);
             bookingDto.setStartTime(startDateTime[1]);
-
             bookingDto.setMeetingType((String) booking[6]);
-
             // find the status of booking history DTO.
             LocalDateTime endDateTimeObj = LocalDateTime.parse(bookingDto.getEndDate() + "T" + bookingDto.getEndTime());
             LocalDateTime startDateTimeObj = LocalDateTime.parse(bookingDto.getStartDate() + "T" + bookingDto.getStartTime());
@@ -132,11 +125,8 @@ public class UserController {
             } else {
                 bookingDto.setStatus(UserController.USING_VALUE);
             }
-
             bookingDto.setBookingId(Integer.parseInt("" + booking[7]));
             bookingDto.setUserId(Integer.parseInt("" + booking[8]));
-
-
             if (status.isEmpty()) {
                 bookingHistoryDtos.add(bookingDto);
             } else {
@@ -148,33 +138,24 @@ public class UserController {
         return new ResponseEntity<>(bookingHistoryDtos, HttpStatus.OK);
     }
 
-
     @GetMapping("/bookings-all-users")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     public ResponseEntity<List<BookingHistoryDto>> getBookingsOfAllUsers() {
         List<Object[]> bookings = this.userService.getAllBookingHistoryOfAllUsers();
-
         List<BookingHistoryDto> bookingHistoryDtos = new ArrayList<>();
         for (Object[] booking : bookings) {
             BookingHistoryDto bookingDto = new BookingHistoryDto();
             bookingDto.setRoomName((String) booking[0]);
             bookingDto.setContent((String) booking[1]);
-
             bookingDto.setRegistrationDate(convertFromDateToString((Date) booking[2]));
-
             bookingDto.setFloor(Integer.parseInt("" + booking[3]));
-
             String[] endDateTime = convertFromTimestampToDateTimeTokens((Timestamp) booking[4]);
             bookingDto.setEndDate(endDateTime[0]);
             bookingDto.setEndTime(endDateTime[1]);
-
-
             String[] startDateTime = convertFromTimestampToDateTimeTokens((Timestamp) booking[5]);
             bookingDto.setStartDate(startDateTime[0]);
             bookingDto.setStartTime(startDateTime[1]);
-
             bookingDto.setMeetingType((String) booking[6]);
-
             // find the status of booking history DTO.
             LocalDateTime endDateTimeObj = LocalDateTime.parse(bookingDto.getEndDate() + "T" + bookingDto.getEndTime());
             LocalDateTime startDateTimeObj = LocalDateTime.parse(bookingDto.getStartDate() + "T" + bookingDto.getStartTime());
@@ -189,10 +170,8 @@ public class UserController {
 
             bookingDto.setBookingId(Integer.parseInt("" + booking[7]));
             bookingDto.setUserId(Integer.parseInt("" + booking[8]));
-
             bookingHistoryDtos.add(bookingDto);
         }
-
         return new ResponseEntity<>(bookingHistoryDtos, HttpStatus.OK);
     }
 
@@ -210,32 +189,22 @@ public class UserController {
         if (startDate.equals("null")) startDate = null;
         if (endDate.equals("null")) endDate = null;
         if (registrationDate.equals("null")) registrationDate = null;
-
         if (userId == 0) userId = null;
-
         List<Object[]> bookings = this.userService.searchBookingHistoryOnAdmin(roomName, userId, startDate, endDate, meetingType, registrationDate);
-
-
         List<BookingHistoryDto> bookingHistoryDtos = new ArrayList<>();
         for (Object[] booking : bookings) {
             BookingHistoryDto bookingDto = new BookingHistoryDto();
             bookingDto.setRoomName((String) booking[0]);
             bookingDto.setContent((String) booking[1]);
-
             bookingDto.setRegistrationDate(convertFromDateToString((Date) booking[2]));
-
             bookingDto.setFloor(Integer.parseInt("" + booking[3]));
-
             String[] endDateTime = convertFromTimestampToDateTimeTokens((Timestamp) booking[4]);
             bookingDto.setEndDate(endDateTime[0]);
             bookingDto.setEndTime(endDateTime[1]);
-
             String[] startDateTime = convertFromTimestampToDateTimeTokens((Timestamp) booking[5]);
             bookingDto.setStartDate(startDateTime[0]);
             bookingDto.setStartTime(startDateTime[1]);
-
             bookingDto.setMeetingType((String) booking[6]);
-
             // find the status of booking history DTO.
             LocalDateTime endDateTimeObj = LocalDateTime.parse(bookingDto.getEndDate() + "T" + bookingDto.getEndTime());
             LocalDateTime startDateTimeObj = LocalDateTime.parse(bookingDto.getStartDate() + "T" + bookingDto.getStartTime());
@@ -247,11 +216,8 @@ public class UserController {
             } else {
                 bookingDto.setStatus(UserController.USING_VALUE);
             }
-
             bookingDto.setBookingId(Integer.parseInt("" + booking[7]));
             bookingDto.setUserId(Integer.parseInt("" + booking[8]));
-
-
             if (status.isEmpty()) {
                 bookingHistoryDtos.add(bookingDto);
             } else {
@@ -260,10 +226,8 @@ public class UserController {
                 }
             }
         }
-
         return new ResponseEntity<>(bookingHistoryDtos, HttpStatus.OK);
     }
-
 
     private static String convertFromDateToString(Date date) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -279,8 +243,6 @@ public class UserController {
     }
 
     // -------------------------------------------------------------------------------------------
-
-
     @Autowired
     private PasswordEncoder encoder;
     @Autowired

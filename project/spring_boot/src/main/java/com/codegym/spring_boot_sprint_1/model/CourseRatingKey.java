@@ -7,11 +7,8 @@ import java.util.Objects;
 
 @Embeddable
 public class CourseRatingKey implements Serializable {
-
-
     @Column(name = "meeting_room_id")
     Long meetingRoomId;
-
 
     @Column(name = "property_id")
     Long propertyId;

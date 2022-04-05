@@ -1,6 +1,5 @@
 package com.codegym.spring_boot_sprint_1.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;

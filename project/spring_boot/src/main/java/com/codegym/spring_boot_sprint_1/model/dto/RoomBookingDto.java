@@ -1,23 +1,29 @@
 package com.codegym.spring_boot_sprint_1.model.dto;
 
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class RoomBookingDto {
     @JsonProperty(value = "Id")
     private Long idRoom;
+
     @JsonProperty(value = "Subject")
     private String subject;
+
     @JsonProperty(value = "StartTime")
     private String startTime;
+
     @JsonProperty(value = "Description")
     private String description;
+
     @JsonProperty(value = "EndTime")
     private String endTime;
+
     @JsonProperty(value = "Location")
     private String location;
+
     @JsonProperty(value = "CategoryColor")
     private String color;
+
     @JsonProperty(value = "OwnerId")
     private Long ownerId;
 

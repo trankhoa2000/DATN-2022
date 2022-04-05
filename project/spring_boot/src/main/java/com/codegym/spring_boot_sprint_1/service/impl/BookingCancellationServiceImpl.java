@@ -13,7 +13,6 @@ public class BookingCancellationServiceImpl implements IBookingCancellationServi
     @Autowired
     private IBookingCancellationRepository bookingCancellationRepository;
 
-
     @Override
     public void saveBookingCancellation(String cancellationReason, String cancellationTime, Long meetingRoomId, Long userId) {
         this.bookingCancellationRepository.saveBookingCancellation(cancellationReason, cancellationTime, meetingRoomId, userId);
@@ -33,7 +32,6 @@ public class BookingCancellationServiceImpl implements IBookingCancellationServi
     public void deleteBookingCancellationByRoomIdAndUserId(Long roomId, Long userId) {
         this.bookingCancellationRepository.deleteBookingCancellationByRoomIdAndUserId(roomId, userId);
     }
-
 
     @Override
     public String findRoomNameById(Long roomId) {

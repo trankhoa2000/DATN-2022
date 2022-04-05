@@ -7,7 +7,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {ChartsModule} from 'ng2-charts';
 
-
 @NgModule({
   declarations: [ManagementStatisticsComponent],
   exports: [

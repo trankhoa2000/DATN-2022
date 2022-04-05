@@ -1,7 +1,6 @@
 package com.codegym.spring_boot_sprint_1.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,16 +12,22 @@ public class Property implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
     private String detail;
+
     private Double price;
+
     private Integer amount;
 
     @Column(name = "using_property", columnDefinition = "integer default  0")
     private Integer usingProperty;
 
     private Integer maintenance;
+
     private Integer availability;
+
     @Column(columnDefinition = "Mediumtext")
     private String image;
 

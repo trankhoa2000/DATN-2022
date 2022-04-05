@@ -12,6 +12,7 @@ public class TypeError implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_type_error")
     private Long id;
+
     private String name;
 
     @OneToMany(mappedBy = "typeError")

@@ -5,7 +5,6 @@ import {Observable, throwError} from 'rxjs';
 import {Property} from '../models/property';
 import {catchError} from 'rxjs/operators';
 
-
 const API_URL = `${environment.apiUrl}`;
 
 @Injectable({
@@ -40,7 +39,6 @@ export class PropertyServiceService {
     return this.httpClient.delete<Property>(`${API_URL}/api/properties/${id}`).pipe(catchError(this.handleError));
   }
 
-  // sangld code
   private handleError(httpError: HttpErrorResponse) {
     let message = '';
     if (httpError.error instanceof ProgressEvent) {

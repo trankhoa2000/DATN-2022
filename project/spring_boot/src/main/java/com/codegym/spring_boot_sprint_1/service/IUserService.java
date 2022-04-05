@@ -8,8 +8,6 @@ import java.util.List;
 
 public interface IUserService {
 
-    //    Code of khahq
-
     List<Object[]> findAllBookingHistoryOfUser(Long userId);
 
     List<Object[]> searchUserBookingHistory(Long userId, String roomName, String startDate, String endDate, String meetingType, String registrationDate);

@@ -11,10 +11,8 @@ import java.util.Optional;
 
 @Service
 public class RoomBookingPendingServiceImp implements IRoomBookingPendingService {
-
     @Autowired
     private RoomBookingPendingRepository roomBookingPendingRepository;
-
 
     @Override
     public List<RoomBookingPending> findAll() {

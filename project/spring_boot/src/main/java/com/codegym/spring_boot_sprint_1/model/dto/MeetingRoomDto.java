@@ -5,7 +5,6 @@ import java.util.List;
 
 public class MeetingRoomDto {
     private Long id;
-
     private String name;
     private Integer floor;
     private Integer capacity;

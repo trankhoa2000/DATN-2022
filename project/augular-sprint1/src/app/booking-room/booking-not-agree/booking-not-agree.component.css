@@ -197,3 +197,15 @@ body {
 .product-image:hover img {
   transform: scale(1.2, 1.2);
 }
+
+p{
+  text-align: left;
+}
+
+h3{
+  font-family: Roboto;
+}
+
+.required{
+  color: red;
+}

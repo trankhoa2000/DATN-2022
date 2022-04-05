@@ -12,7 +12,6 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements IUserService {
-
     @Autowired
     private IUserRepository userRepository;
 
@@ -35,7 +34,6 @@ public class UserServiceImpl implements IUserService {
     public List<Object[]> searchBookingHistoryOnAdmin(String roomName, Long userId, String startDate, String endDate, String meetingType, String registrationDate) {
         return this.userRepository.searchBookingHistoryOnAdmin(roomName, userId, startDate, endDate, meetingType, registrationDate);
     }
-
 
     //    --------------------------------------------------------------------------------
 

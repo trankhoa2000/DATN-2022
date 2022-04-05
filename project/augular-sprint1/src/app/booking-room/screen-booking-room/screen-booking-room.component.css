@@ -53,3 +53,7 @@ ul li {
   right: 10px;
   cursor: pointer;
 }
+
+.div-border{
+  border-radius: 8%;
+}

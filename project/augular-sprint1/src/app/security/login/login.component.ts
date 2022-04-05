@@ -13,7 +13,6 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
 
-
   form: any = {};
   isLoggedIn = false;
   isLoginFailed = false;

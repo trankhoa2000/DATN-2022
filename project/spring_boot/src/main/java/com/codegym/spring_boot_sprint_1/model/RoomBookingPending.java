@@ -1,6 +1,5 @@
 package com.codegym.spring_boot_sprint_1.model;
 
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
@@ -9,18 +8,21 @@ import java.io.Serializable;
 @Entity
 @Table
 public class RoomBookingPending implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @JsonProperty(value = "content")
     private String content;
+
     @Column(columnDefinition = "date")
     @JsonProperty(value = "registrationDate")
     private String registrationDate;
+
     @JsonProperty(value = "startDate")
     @Column(columnDefinition = "datetime")
     private String startDate;
+
     @Column(columnDefinition = "datetime")
     @JsonProperty(value = "endDate")
     private String endDate;
@@ -38,7 +40,9 @@ public class RoomBookingPending implements Serializable {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
     private int status;
+
     private String code;
 
     public RoomBookingPending() {

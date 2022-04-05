@@ -102,7 +102,6 @@ export class BookMeetingRoomComponent implements OnInit, DoCheck {
 
   ngDoCheck(): void {
 
-
   }
 
   initForm() {
@@ -222,7 +221,6 @@ export class BookMeetingRoomComponent implements OnInit, DoCheck {
     });
   }
 
-  // Kha code.
   checkBookRoomAfterCancel() {
     let roomName: string = this.meetingRoomVariable.name;
     console.log('room id: ' + this.meetingRoomVariable.id);
@@ -254,10 +252,8 @@ export class BookMeetingRoomComponent implements OnInit, DoCheck {
 
   // ----------------------------------------------
 
-
   combackSearchEmty() {
     console.log(this.createForm.value);
-
 
     this.route.navigate(['dat-phong-hop/searchEmpty', this.meetingRoomVariable.id, this.listMeetingType[0].id, this.startDateVariable, this.endDateVariable, this.startHourVariable, this.endHourVariable]);
   }

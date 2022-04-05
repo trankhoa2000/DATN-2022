@@ -57,7 +57,6 @@ export class UserService {
     }),
   };
 
-  // khahq's code
   getUserBookingHistory(userId: number): Observable<UserBooking[]> {
     return this.http.get<UserBooking[]>(`${API_URL}/booking-history/${userId}`).pipe(catchError(this.handleError));
   }
@@ -83,7 +82,6 @@ export class UserService {
   }
 
   // ---------------------------------------------------------------------------------
-  // sangld code
   private handleError(httpError: HttpErrorResponse) {
     let message = '';
     if (httpError.error instanceof ProgressEvent) {

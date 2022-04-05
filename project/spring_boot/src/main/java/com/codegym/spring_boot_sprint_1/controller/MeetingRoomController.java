@@ -1,6 +1,5 @@
 package com.codegym.spring_boot_sprint_1.controller;
 
-
 import com.codegym.spring_boot_sprint_1.model.MeetingRoom;
 import com.codegym.spring_boot_sprint_1.model.Property;
 import com.codegym.spring_boot_sprint_1.model.PropertyMeetingRoom;
@@ -39,7 +38,6 @@ public class MeetingRoomController {
 
     @GetMapping()
     public ResponseEntity<Page<MeetingRoom>> getListMeetingRoom(Pageable pageable) {
-
         Page<MeetingRoom> meetingRoomPage = meetingRoomService.findAll(pageable);
         if (meetingRoomPage.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

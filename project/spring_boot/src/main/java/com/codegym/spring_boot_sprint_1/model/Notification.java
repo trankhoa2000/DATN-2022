@@ -8,10 +8,15 @@ public class Notification {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "notification_id")
     private Long id;
+
     private String content;
+
     private String image;
+
     private String background;
+
     private Long feedbackId;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

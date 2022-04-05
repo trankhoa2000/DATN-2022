@@ -116,10 +116,10 @@ public class FeedbackController {
                 return new ResponseEntity<>(HttpStatus.FORBIDDEN);
             }
             feedback.setStatus(true);
-            String default_message = "Phản hồi về "+feedback.getFeedbackTitle().toLowerCase()+" của bạn đã được xử lý";
+            String default_message = "Phản hồi về " + feedback.getFeedbackTitle().toLowerCase() + " của bạn đã được xử lý";
             String image = null;
-            if (feedback.getImage() != null){
-                image = String.join(",",handleFeedbackDto.getImage());
+            if (feedback.getImage() != null) {
+                image = String.join(",", handleFeedbackDto.getImage());
             }
             handleFeedbackService.save(handleFeedbackDto.getContent().trim(), image, id);
             notificationService.save(handleFeedbackDto.getContent().trim(), image, handleFeedbackDto.getUser(), "lightskyblue", id);
@@ -181,9 +181,9 @@ public class FeedbackController {
         } else {
             feedbackDto.setFeedbackType(feedback.getFeedbackType().getId());
         }
-        if (feedback.getImage() == null){
+        if (feedback.getImage() == null) {
             feedbackDto.setImage(null);
-        }else {
+        } else {
             String[] arrImage = feedback.getImage().split(",");
             feedbackDto.setImage(arrImage);
         }

@@ -10,7 +10,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxSpinnerModule} from 'ngx-bootstrap-spinner';
 
-
 @NgModule({
   declarations: [CreatePropertyComponent, EditPropertyComponent, ListPropertyComponent, DetailPropertyComponent],
   exports: [

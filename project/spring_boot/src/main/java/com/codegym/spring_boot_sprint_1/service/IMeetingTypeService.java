@@ -9,7 +9,6 @@ public interface IMeetingTypeService {
 
     List<MeetingType> findAll();
 
-
     Optional<MeetingType> findById(Long id);
 
     MeetingType save(MeetingType meetingType);

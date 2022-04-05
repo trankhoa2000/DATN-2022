@@ -12,7 +12,6 @@ export class Validation {
     }
   }
 
-
   public static compareDate(elementControl: AbstractControl) {
     const elementHours = elementControl.value;
     let startDate = Date.parse(elementHours.startDate);

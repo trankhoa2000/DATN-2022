@@ -5,11 +5,9 @@ import com.codegym.spring_boot_sprint_1.model.User;
 import com.codegym.spring_boot_sprint_1.model.dto.JwtResponse;
 import com.codegym.spring_boot_sprint_1.model.dto.LoginRequest;
 import com.codegym.spring_boot_sprint_1.model.dto.MessageResponse;
-import com.codegym.spring_boot_sprint_1.repositories.IUserRepository;
 import com.codegym.spring_boot_sprint_1.service.IUserService;
 import com.codegym.spring_boot_sprint_1.service.impl.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -46,8 +44,11 @@ public class LoginController {
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
-
+                new UsernamePasswordAuthenticationToken
+                        (
+                                loginRequest.getUsername(),
+                                loginRequest.getPassword())
+        );
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
 
@@ -79,8 +80,9 @@ public class LoginController {
 
     @PatchMapping("/user-reset-password")
     @ResponseBody
-    public ResponseEntity<MessageResponse> resetUserPassword(@RequestParam("username") String username,
-                                                             @RequestParam("email") String email) {
+    public ResponseEntity<MessageResponse> resetUserPassword
+            (@RequestParam("username") String username,
+             @RequestParam("email") String email) {
         User user = userService.findUserByEmail(email);
         if (user == null) {
             return ResponseEntity.badRequest().body(new MessageResponse("Email không tồn tại."));

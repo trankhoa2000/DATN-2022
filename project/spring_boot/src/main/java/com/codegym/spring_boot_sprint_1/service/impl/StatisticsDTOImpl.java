@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class StatisticsDTOImpl implements StatisticsDTOService {
-
     @Autowired
     private StatisticsDTORepository statisticsDTORepository;
 

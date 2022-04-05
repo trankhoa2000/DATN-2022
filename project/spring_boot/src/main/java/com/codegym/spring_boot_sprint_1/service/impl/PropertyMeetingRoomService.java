@@ -13,7 +13,6 @@ public class PropertyMeetingRoomService implements IPropertyMeetingRoomService {
     @Autowired
     IPropertyMeetingRoomRepository propertyMeetingRoomRepository;
 
-
     @Override
     public void deleteByIdMeetingRoom(Long id) {
         propertyMeetingRoomRepository.deleteByIdMeetingRoom(id);

@@ -13,6 +13,7 @@ public class HandleFeedback implements Serializable {
 
     @Column(name = "handle_feedback_content")
     private String content;
+
     private String image;
 
     @OneToOne()

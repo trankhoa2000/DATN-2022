@@ -10,7 +10,6 @@ import java.util.List;
 
 @Service
 public class DepartmentServiceImpl implements IDepartmentService {
-
     @Autowired
     private IDepartmentRepository departmentRepository;
 

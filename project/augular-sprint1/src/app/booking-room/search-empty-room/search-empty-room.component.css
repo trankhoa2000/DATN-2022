@@ -71,3 +71,55 @@ label {
 small {
   font-size: 16px;
 }
+
+.p-font{
+  font-size: 28px;
+}
+
+.select-p{
+  width: 100%;
+  height: 100%;
+}
+
+.span-d{
+  margin-right: 3px;
+}
+
+.input-h{
+  width: 100%;
+  height: 38px;
+}
+
+.td-m{
+  margin-right: 30px;
+}
+
+.td-p{
+  padding-left: 10px;
+}
+
+.btn-g{
+  width: 150px;
+}
+
+.fieldset-p{
+  padding: 20px;
+}
+
+.tr-p{
+  background-color: #6883A6;
+  color: white;
+}
+
+.page{
+  float: right;
+  margin-right: 20px;
+}
+
+.tb-a{
+  text-align: center;
+}
+
+.div-f{
+  height: 30px;
+}

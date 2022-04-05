@@ -26,13 +26,11 @@ public class BookingCancellationController {
     @ResponseStatus(HttpStatus.CREATED)
     public void save(@RequestBody BookingCancellationDto bookingCancellationDto) {
         Long roomId = this.bookingCancellationService.findRoomIdByName(bookingCancellationDto.getRoomName());
-
         this.bookingCancellationService
                 .saveBookingCancellation(bookingCancellationDto.getCancellationReason(),
                         bookingCancellationDto.getCancellationTime(),
                         roomId,
                         bookingCancellationDto.getUserId());
-
         this.roomBookingService.deleteRoomBookingById(bookingCancellationDto.getBookingId());
     }
 
@@ -42,16 +40,12 @@ public class BookingCancellationController {
         List<BookingCancellationDto> result = new ArrayList<>();
         for (BookingCancellation bookingCancellation : bookingCancellationList) {
             BookingCancellationDto bookingCancellationDto = new BookingCancellationDto();
-
             bookingCancellationDto.setCancellationReason(bookingCancellation.getCancellationReason());
             bookingCancellationDto.setCancellationTime(bookingCancellation.getCancellationTime());
             bookingCancellationDto.setUserId(bookingCancellation.getUserId());
-
             String roomName = this.bookingCancellationService.findRoomNameById(bookingCancellation.getMeetingRoomId());
             bookingCancellationDto.setRoomName(roomName);
-
             bookingCancellationDto.setBookingId((0L));
-
             result.add(bookingCancellationDto);
         }
         return new ResponseEntity<>(result, HttpStatus.OK);

@@ -1,6 +1,5 @@
 package com.codegym.spring_boot_sprint_1.service;
 
-
 import com.codegym.spring_boot_sprint_1.model.Property;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -7,7 +7,6 @@ import {BookMeetingRoomComponent} from './book-meeting-room/book-meeting-room.co
 import {BookingAgreeComponent} from './booking-agree/booking-agree.component';
 import {BookingNotAgreeComponent} from './booking-not-agree/booking-not-agree.component';
 
-
 const routes: Routes = [
   {
     path: 'man-hinh',

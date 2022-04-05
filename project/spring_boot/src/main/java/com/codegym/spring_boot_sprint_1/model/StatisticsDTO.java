@@ -8,7 +8,9 @@ public class StatisticsDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
+
     private String count;
 
     public StatisticsDTO() {

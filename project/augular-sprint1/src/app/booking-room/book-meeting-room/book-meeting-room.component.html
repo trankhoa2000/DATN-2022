@@ -3,15 +3,15 @@
     <div class="w-75 form">
       <div class="col-md-12 form-content">
         <div class="note">
-          <p style="font-size: 28px">Đăng ký phòng họp</p>
+          <p class="title">Đăng ký phòng họp</p>
         </div>
         <form [formGroup]="createForm" *ngIf="createForm" (ngSubmit)="save()">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
                 <label for="meetingRoom">Tên phòng <span class="text-danger">*</span></label>
-                <select class="form-control col 10 js-example-basic-single" formControlName="meetingRoom"
-                        style="    width: 100%;height: 100%" id="meetingRoom" [(ngModel)]="meetingRoomVariable"
+                <select class="form-control col 10 js-example-basic-single select-p"
+                        formControlName="meetingRoom" id="meetingRoom" [(ngModel)]="meetingRoomVariable"
                         (change)="checkBookRoomAfterCancel()">
                   <option [ngValue]="null">Chọn phòng</option>
                   <option *ngFor="let c of listMeetingRoom" [ngValue]="c">{{c.name}}</option>
@@ -28,51 +28,44 @@
                 <label for="startDate">Ngày bắt đầu <span class="text-danger">*</span></label>
                 <input type="date" class="form-control" id="startDate" formControlName="startDate"
                        [(ngModel)]="startDateVariable "/>
-                <span class="text-danger"
-                      *ngIf="(startDate?.hasError('required') || startDateVariable.length<2  )&& (startDate?.dirty ||startDate?.touched)"
-                      style="margin-right: 3px">Vui lòng chọn ngày bắt đầu. </span>
-                <span class="text-danger"
-                      *ngIf="startDate?.hasError('pattern') && (startDate?.dirty ||startDate?.touched)"
-                      style="margin-right: 3px">Không đúng định dạng: MM/dd/yyyy. </span>
-                <span class="text-danger"
-                      *ngIf="startDate?.hasError('invalidDateNow') && (startDate?.dirty ||startDate?.touched)"
-                      style="margin-right: 3px">Ngày bắt đầu nhỏ hơn ngày hiện tại. </span>
+                <span class="text-danger span-d"
+                      *ngIf="(startDate?.hasError('required') || startDateVariable.length<2  )&&
+                      (startDate?.dirty ||startDate?.touched)">Vui lòng chọn ngày bắt đầu. </span>
+                <span class="text-danger span-d"
+                      *ngIf="startDate?.hasError('pattern') && (startDate?.dirty ||startDate?.touched)">Không đúng định dạng: MM/dd/yyyy. </span>
+                <span class="text-danger span-d"
+                      *ngIf="startDate?.hasError('invalidDateNow') && (startDate?.dirty ||startDate?.touched)">Ngày bắt đầu nhỏ hơn ngày hiện tại. </span>
               </div>
               <div class="form-group">
                 <label for="endDate">Ngày kết thúc <span class="text-danger">*</span></label>
                 <input type="date" class="form-control" id="endDate" formControlName="endDate"
                        [(ngModel)]="endDateVariable"/>
-                <span class="text-danger"
-                      *ngIf=" ( endDate?.hasError('required')) && (endDate?.dirty ||endDate?.touched)"
-                      style="margin-right: 3px">Vui lòng nhập ngày kết thúc.</span>
-                <span class="text-danger"
-                      *ngIf="endDate?.hasError('pattern') && (endDate?.dirty ||endDate?.touched)"
-                      style="margin-right: 3px">Không đúng định dạng: MM/dd/yyyy.</span>
-                <span class="text-danger"
-                      *ngIf="endDate?.hasError('invalidDateNow') && (endDate?.dirty ||endDate?.touched)"
-                      style="margin-right: 3px"> Ngày kết thúc nhỏ hơn ngày hiện tại.</span>
-                <span class="text-danger"
-                      *ngIf="dateGroup?.hasError('noMartDate') && (endDate?.dirty ||endDate?.touched)"
-                      style="margin-right: 3px"> Ngày kết thúc không thể nhỏ hơn ngày bắt đầu. </span>
-                <span class="text-danger"
-                      *ngIf="dateGroup?.hasError('compareDate30') && (endDate?.dirty ||endDate?.touched) "
-                      style="margin-right: 3px"> Chỉ được đặt trong vòng 30 ngày trở lại. </span>
+                <span class="text-danger span-d"
+                      *ngIf=" ( endDate?.hasError('required')) && (endDate?.dirty ||endDate?.touched)">Vui lòng nhập ngày kết thúc.</span>
+                <span class="text-danger span-d"
+                      *ngIf="endDate?.hasError('pattern') && (endDate?.dirty ||endDate?.touched)">Không đúng định dạng: MM/dd/yyyy.</span>
+                <span class="text-danger span-d"
+                      *ngIf="endDate?.hasError('invalidDateNow') && (endDate?.dirty ||endDate?.touched)"> Ngày kết thúc nhỏ hơn ngày hiện tại.</span>
+                <span class="text-danger span-d"
+                      *ngIf="dateGroup?.hasError('noMartDate') && (endDate?.dirty ||endDate?.touched)"> Ngày kết thúc không thể nhỏ hơn ngày bắt đầu. </span>
+                <span class="text-danger span-d"
+                      *ngIf="dateGroup?.hasError('compareDate30') && (endDate?.dirty ||endDate?.touched)"> Chỉ được đặt trong vòng 30 ngày trở lại. </span>
               </div>
             </div>
             <div class="col-sm-6">
               <fieldset formGroupName="hoursGroup">
                 <div class="form-group">
                   <label for="startHour">Giờ bắt đầu <span class="text-danger">*</span></label>
-                  <input type="time" class="form-control" formControlName="startHour" [(ngModel)]="startHourVariable"
-                         style="    width: 100%;height: 38px;" id="startHour">
+                  <input type="time" class="form-control input-h" formControlName="startHour"
+                         [(ngModel)]="startHourVariable" id="startHour">
                   <span class="text-danger"
                         *ngIf="startHourVariable =='chọn giờ' && startHour?.touched">Vui lòng nhập giờ bắt
                     đầu.</span>
                 </div>
                 <div class="form-group">
                   <label for="endHour">Giờ kết thúc <span class="text-danger">*</span></label>
-                  <input type="time" class="form-control" formControlName="endHour" [(ngModel)]="endHourVariable"
-                         style="    width: 100%;height: 38px;" id="endHour">
+                  <input type="time" class="form-control input-h" formControlName="endHour"
+                         [(ngModel)]="endHourVariable" id="endHour">
                   <span class="text-danger"
                         *ngIf="endHourVariable =='chọn giờ' && endHour?.touched">Vui lòng nhập giờ kết thúc.</span>
                   <span class="text-danger"
@@ -94,11 +87,11 @@
               Nhập ít hơn 5 ký tự.</span>
           </div>
           <div class="form-group text-right d-flex align-items-center justify-content-center">
-            <button type="button" class="btn btnSubmitCancel" style="width: 150px" data-toggle="modal"
+            <button type="button" class="btn btnSubmitCancel btn-g"data-toggle="modal"
                     data-target="#huy">Hủy
             </button>
-            <div style="width: 10px;"></div>
-            <input type="submit" class="btn btnSubmit" style="width: 150px" [disabled]="!createForm.valid"
+            <div class="div-b"></div>
+            <input type="submit" class="btn btnSubmit btn-g" [disabled]="!createForm.valid"
                    value="Đăng ký">
             <br> <br>
           </div>
@@ -112,8 +105,8 @@
 <div class="modal fade" id="huy" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header d-flex align-items-center justify-content-center" style="background-color: #6883A6;">
-        <h5 class="modal-title" id="exampleModalLabel" style="position: absolute;color: #FFFFFF">Hủy Đăng Ký</h5>
+      <div class="modal-header d-flex align-items-center justify-content-center div-m">
+        <h5 class="modal-title h-reg" id="exampleModalLabel">Hủy Đăng Ký</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

@@ -45,7 +45,6 @@ public class PropertyServiceImpl implements IPropertyService {
         return propertyRepository.searchPropertyByNameAndAmount(search);
     }
 
-
     @Override
     public List<Property> findAll() {
         return propertyRepository.findAll();

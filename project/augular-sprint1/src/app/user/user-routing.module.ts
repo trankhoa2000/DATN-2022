@@ -8,7 +8,6 @@ import {EditUserComponent} from './edit-user/edit-user.component';
 import {BookingHistoryComponent} from './booking-history/booking-history.component';
 import {AuthGuard} from '../guards/auth.guard';
 
-
 const routes: Routes = [
   {path: 'tao-moi', component: CreateUserComponent},
   {path: 'thong-tin/:id', component: ProfileComponent},

@@ -7,15 +7,15 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "count_bookings_per_month")
-
 public class CountBookingsPerMonth implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "countBookingsPerMonth_id")
     private Long id;
+
     @JsonProperty(value = "count")
     private int count;
+
     private String monthYear;
 
     @ManyToOne
