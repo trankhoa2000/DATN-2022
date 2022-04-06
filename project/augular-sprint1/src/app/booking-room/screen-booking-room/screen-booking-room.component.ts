@@ -54,8 +54,10 @@ export class ScreenBookingRoomComponent implements OnInit {
   title = 'Lịch họp';
   public selectedDate: Date = new Date();
   private URL = 'http://localhost:8080/api/roombooking';
-  public startHour: string = '08:00';
-  public endHour: string = '21:00';
+  // public startHour: string = '08:00';
+  // public endHour: string = '21:00';
+  public startHour: string = '07:00';
+  public endHour: string = '22:00';
   private dataManger: DataManager;
   public eventSettings: EventSettingsModel;
   @ViewChild('scheduleObj') public scheduleObj: ScheduleComponent;
