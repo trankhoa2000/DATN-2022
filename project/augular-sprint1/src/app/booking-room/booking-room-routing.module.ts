@@ -6,35 +6,81 @@ import {SearchEmptyRoomComponent} from './search-empty-room/search-empty-room.co
 import {BookMeetingRoomComponent} from './book-meeting-room/book-meeting-room.component';
 import {BookingAgreeComponent} from './booking-agree/booking-agree.component';
 import {BookingNotAgreeComponent} from './booking-not-agree/booking-not-agree.component';
+import {AuthGuard} from "../security/auth.guard";
 
 const routes: Routes = [
   {
     path: 'man-hinh',
-    component: ScreenBookingRoomComponent
+    component: ScreenBookingRoomComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN', 'ROLE_USER']
+    }
   },
-  {path: 'searchEmpty', component: SearchEmptyRoomComponent},
-  {path: 'create', component: BookMeetingRoomComponent},
+  {
+    path: 'searchEmpty',
+    component: SearchEmptyRoomComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN', 'ROLE_USER']
+    }
+  },
+  {
+    path: 'create',
+    component: BookMeetingRoomComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN', 'ROLE_USER']
+    }
+  },
   {
     path: 'searchEmpty/:meetingRoom/:meetingType/:startDateVariable/:endDateVariable/:startHourVariable/:endHourVariable',
-    component: SearchEmptyRoomComponent
+    component: SearchEmptyRoomComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN', 'ROLE_USER']
+    }
   },
-  {path: 'searchEmpty/:meetingRoom/:meetingType/:startHourVariable/:endHourVariable', component: SearchEmptyRoomComponent},
+  {
+    path: 'searchEmpty/:meetingRoom/:meetingType/:startHourVariable/:endHourVariable',
+    component: SearchEmptyRoomComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN', 'ROLE_USER']
+    }
+  },
   {
     path: 'create/:meetingRoom/:meetingType/:startDateVariable/:endDateVariable/:startHourVariable/:endHourVariable',
-    component: BookMeetingRoomComponent
+    component: BookMeetingRoomComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN', 'ROLE_USER']
+    }
   },
   {path: 'create/:meetingRoom/:meetingType/:startHourVariable/:endHourVariable', component: BookMeetingRoomComponent},
   {
     path: 'agree/:userId/:startDateVariable/:endDateVariable/:startHourVariable/:endHourVariable/:meetingRoomName',
-    component: BookingAgreeComponent
+    component: BookingAgreeComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN', 'ROLE_USER']
+    }
   },
   {
     path: 'notagree/:userId/:startDateVariable/:endDateVariable/:startHourVariable/:endHourVariable/:meetingRoomName',
-    component: BookingNotAgreeComponent
+    component: BookingNotAgreeComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN', 'ROLE_USER']
+    }
   },
   {
     path: 'create/:meetingRoom/:meetingType/:startDateVariable/:endDateVariable/:startHourVariable/:endHourVariable/:subject',
-    component: BookMeetingRoomComponent
+    component: BookMeetingRoomComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN', 'ROLE_USER']
+    }
   },
 ];
 

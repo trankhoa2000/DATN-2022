@@ -6,16 +6,65 @@ import {ProfileComponent} from './profile/profile.component';
 import {ChangePasswordComponent} from './change-password/change-password.component';
 import {EditUserComponent} from './edit-user/edit-user.component';
 import {BookingHistoryComponent} from './booking-history/booking-history.component';
-import {AuthGuard} from '../guards/auth.guard';
+import {AuthGuard} from '../security/auth.guard';
 
 const routes: Routes = [
-  {path: 'tao-moi', component: CreateUserComponent},
-  {path: 'thong-tin/:id', component: ProfileComponent},
-  {path: 'danh-sach', component: ListUserComponent},
-  {path: 'cap-nhat/:id', component: EditUserComponent},
-  {path: 'lich-su-dat-phong/:id', component: BookingHistoryComponent},
-  {path: 'quan-ly-dat-phong', component: BookingHistoryComponent},
-  {path: 'doi-mat-khau/:id', component: ChangePasswordComponent},
+  {
+    path: 'tao-moi',
+    component: CreateUserComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN', 'ROLE_USER']
+    }
+  },
+  {
+    path: 'thong-tin/:id',
+    component: ProfileComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN', 'ROLE_USER']
+    }
+  },
+  {
+    path: 'danh-sach',
+    component: ListUserComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN', 'ROLE_USER']
+    }
+  },
+  {
+    path: 'cap-nhat/:id',
+    component: EditUserComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN', 'ROLE_USER']
+    }
+  },
+  {
+    path: 'lich-su-dat-phong/:id',
+    component: BookingHistoryComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN', 'ROLE_USER']
+    }
+  },
+  {
+    path: 'quan-ly-dat-phong',
+    component: BookingHistoryComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN', 'ROLE_USER']
+    }
+  },
+  {
+    path: 'doi-mat-khau/:id',
+    component: ChangePasswordComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN', 'ROLE_USER']
+    }
+  },
 
 ];
 
