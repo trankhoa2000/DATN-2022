@@ -113,7 +113,7 @@ export class BookingHistoryComponent implements OnInit {
         } else {
           this.collectionSize = this.bookingList.length;
           this.page = 1;
-          this.pageSize = 5;
+          this.pageSize = 10;
         }
       }
     );
@@ -128,7 +128,7 @@ export class BookingHistoryComponent implements OnInit {
         } else {
           this.collectionSize = this.bookingList.length;
           this.page = 1;
-          this.pageSize = 5;
+          this.pageSize = 10;
         }
       }
     );

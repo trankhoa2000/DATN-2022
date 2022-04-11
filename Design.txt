@@ -3,4 +3,4 @@
 3. sơ đồ hoạt động
 4. sơ đồ erd
 5. thiết kế csdl : giải thích các bảng
-6. demo chương trình: chụp ảnh 1 số giao diện
+6. demo chương trình: chụp ảnh 1 số giao diện admin và user
