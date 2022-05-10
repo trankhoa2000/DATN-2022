@@ -81,7 +81,7 @@ export class HandleFeedbackComponent implements OnInit {
     setTimeout(() => {
       /** spinner ends after 15 seconds */
       this.spinner.hide();
-    }, 5000);
+    }, 15000);
   }
 
   get user() {

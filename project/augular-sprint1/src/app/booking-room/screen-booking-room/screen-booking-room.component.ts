@@ -104,13 +104,13 @@ export class ScreenBookingRoomComponent implements OnInit {
   renderData() {
     this.bookingRoomService.findAll(this.listId).subscribe(data => {
       this.items = data;
-      this.eventSettings = {dataSource: <Object[]> extend([], this.items, null, true), enableTooltip: true};
+      this.eventSettings = {dataSource: <Object[]>extend([], this.items, null, true), enableTooltip: true};
     });
   }
 
   onActionBegin(args: ActionEventArgs) {
     if (args.requestType === 'eventCreate') {
-      let newData = <any> args.data[0];
+      let newData = <any>args.data[0];
       let month;
       if (newData.StartTime.getMonth() + 1 < 11) {
         month = '0' + (newData.StartTime.getMonth() + 1);

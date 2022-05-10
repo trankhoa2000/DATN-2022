@@ -65,7 +65,7 @@ export class ChangePasswordComponent implements OnInit {
       this.showError();
       console.log(e);
     }, () =>
-      this.router.navigateByUrl(''));
+      this.router.navigateByUrl('/dat-phong-hop/man-hinh'));
   }
 
   get getPassword() {

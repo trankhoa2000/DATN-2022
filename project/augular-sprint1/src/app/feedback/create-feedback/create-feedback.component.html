@@ -38,7 +38,7 @@
             </span>
           </div>
           <div class="form-group">
-            <label for="content">Nội dung</label>
+            <label for="content">Nội dung <span class="text-danger">*</span></label>
             <textarea formControlName="feedbackContent" class="form-control" id="content" rows="3"></textarea>
             <span *ngIf="!feedbackContent.valid && feedbackContent.touched"
                    [hidden]="!feedbackContent.hasError('required')" class="text-danger">

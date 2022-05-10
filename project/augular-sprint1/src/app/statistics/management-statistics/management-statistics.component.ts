@@ -49,7 +49,7 @@ export class ManagementStatisticsComponent implements OnInit {
     } else if (this.startDate == this.endDate) {
       this.toast.error('Ngày bắt đầu và  ngày kết thúc không được trùng nhau');
     } else {
-      this.toast.success();
+      this.toast.success('Thống Kê thành công!', 'Thông Báo');
     }
     this.statisticsService.getUserStatistic(this.startDate, this.endDate).subscribe(response => {
       this.statistics = response['content'];
